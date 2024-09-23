@@ -38,3 +38,22 @@ This Python script demonstrates how to implement Change Data Capture (CDC) using
   - Finds rows where data has changed by merging both datasets on a common key (id) and comparing columns like name, age, and city.
 
 The script uses pandas DataFrames to simulate the old and new datasets, and captures all changes between them for easy tracking.
+
+# SCD_PYTHON
+This Python script demonstrates the implementation of different types of Slowly Changing Dimensions (SCD) using pandas to manage changes in datasets over time.
+
+## Operations:
+- SCD Type 1 (Overwrite):
+  - Updates the existing records in the old dataset with new values, losing any previous information. This is done by directly modifying the old data.
+
+- SCD Type 2 (Add New Row):
+  - Preserves history by adding new rows for each change. It tracks the validity of each record using effective and expiry dates, marking older records as not current.
+
+- SCD Type 3 (Add New Column):
+  - Captures the previous value of a changed attribute by adding a new column. This allows tracking the most recent change while keeping the current value.
+
+- SCD Type 4 (Using a History Table):
+  - Maintains a separate history table that stores all historical changes while the main table only contains the current data. This approach efficiently tracks changes without altering the main table's 
+    structure.
+
+Each SCD type demonstrates a different method for managing and retaining data changes over time, allowing for varied data history management strategies.
